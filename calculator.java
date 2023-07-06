@@ -17,6 +17,7 @@ class Calculator {
      */
     public static void main(String[] args) throws IOException {
         boolean flag = true;
+        int k = 0;
         while (flag) {
             try {
             Scanner scanner = new Scanner(System.in);
@@ -27,17 +28,30 @@ class Calculator {
 
             System.out.print("Введите первое число: ");
             int a = scanner.nextInt();
-            System.out.print("Введите операцию (+ - * / <): ");
-            char op = scanner.next().charAt(0);
-            if(op == '<'){
+            if(k != 0){
+                System.out.print("Введите операцию (+ - * / < !): ");
+                char op = scanner.next().charAt(0);
+                if(op == '<'){
                     logStep("Result is: " + back);
                     System.out.println("Backed to " + back);
+                    a = back;
+                    System.out.println("Первое число заменено!");
+                }
+                if(op == '!'){
                     flag = false;
+                    System.out.println("Exiting...");
                     break;
+                }
             }
+
+
+            System.out.print("Введите операцию (+ - * /): ");
+            char op = scanner.next().charAt(0);
+
             System.out.print("Введите второе число: ");
             int b = scanner.nextInt();
             int res;
+            k++;
             switch (op) {
                 case '+':
                     res = add(a, b);
