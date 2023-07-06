@@ -11,7 +11,7 @@ public class main {
     public static void task1(){
         LinkedList<Integer> linkedList = new LinkedList<>(Arrays.asList(1, 2, 3, 4));
         System.out.println(linkedList);
-        Deque deque = new ArrayDeque();
+        Deque<Integer> deque = new ArrayDeque<>();
 
         for (Integer el : linkedList) {
             deque.addFirst(el);
